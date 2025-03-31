@@ -1,5 +1,7 @@
 using API.Contracts.Coordinator;
 using API.Database;
+using API.Domain.Entities;
+using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +18,14 @@ public class CreateCoordinatorController : ControllerBase
         _mediator = mediator;
     }
 
+    /// <summary>
+    /// Create a Coordinator
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns>The Coordinator object that was created</returns>
     [HttpPost]
+    [ProducesResponseType(typeof(Coordinator), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<IError>), StatusCodes.Status400BadRequest)]
     [Route("/api/[controller]/[action]")]
     public async Task<IActionResult> CreateCoordinator([FromBody] CreateCoordinatorRequest request)
     {
