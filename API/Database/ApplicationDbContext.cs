@@ -50,9 +50,9 @@ public class ApplicationDbContext : DbContext
 
 
             entity
-                .HasMany<Department>(e => e.Departments)
-                .WithOne(e => e.Coordinator)
-                .HasForeignKey(e => e.DepartmentId);
+                .HasMany<Department>(c => c.Departments)
+                .WithOne(d => d.Coordinator)
+                .HasForeignKey(d => d.CoordinatorId);
 
         });
     }

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace API.Domain.Entities;
 
 public class Department
@@ -8,8 +10,9 @@ public class Department
     
     public int CoordinatorId { get; set; }
 
-    public Coordinator Coordinator { get; set; } = null!;
-    public IEnumerable<Employee> Employees { get; set; }
+    [JsonIgnore]
+    public virtual Coordinator Coordinator { get; set; } = null!;
+    public IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
     
     
 }

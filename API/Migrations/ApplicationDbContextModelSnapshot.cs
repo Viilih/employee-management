@@ -21,7 +21,7 @@ namespace API.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("API.Domain.Coordinator", b =>
+            modelBuilder.Entity("API.Domain.Entities.Coordinator", b =>
                 {
                     b.Property<int>("CoordinatorId")
                         .ValueGeneratedOnAdd()
@@ -50,11 +50,14 @@ namespace API.Migrations
                     b.ToTable("Coordinators");
                 });
 
-            modelBuilder.Entity("API.Domain.Department", b =>
+            modelBuilder.Entity("API.Domain.Entities.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasColumnName("DEPARTMENT_ID");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DepartmentId"));
 
                     b.Property<int>("CoordinatorId")
                         .HasColumnType("integer")
@@ -67,10 +70,12 @@ namespace API.Migrations
 
                     b.HasKey("DepartmentId");
 
+                    b.HasIndex("CoordinatorId");
+
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("API.Domain.Employee", b =>
+            modelBuilder.Entity("API.Domain.Entities.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -105,20 +110,20 @@ namespace API.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("API.Domain.Department", b =>
+            modelBuilder.Entity("API.Domain.Entities.Department", b =>
                 {
-                    b.HasOne("API.Domain.Coordinator", "Coordinator")
+                    b.HasOne("API.Domain.Entities.Coordinator", "Coordinator")
                         .WithMany("Departments")
-                        .HasForeignKey("DepartmentId")
+                        .HasForeignKey("CoordinatorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Coordinator");
                 });
 
-            modelBuilder.Entity("API.Domain.Employee", b =>
+            modelBuilder.Entity("API.Domain.Entities.Employee", b =>
                 {
-                    b.HasOne("API.Domain.Department", "Department")
+                    b.HasOne("API.Domain.Entities.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -127,12 +132,12 @@ namespace API.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("API.Domain.Coordinator", b =>
+            modelBuilder.Entity("API.Domain.Entities.Coordinator", b =>
                 {
                     b.Navigation("Departments");
                 });
 
-            modelBuilder.Entity("API.Domain.Department", b =>
+            modelBuilder.Entity("API.Domain.Entities.Department", b =>
                 {
                     b.Navigation("Employees");
                 });

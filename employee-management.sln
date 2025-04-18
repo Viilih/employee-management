@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{FD17827F-6362-4F0E-9A9D-ADFBC79EBFB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email-Microservice", "Email-Microservice\Email-Microservice.csproj", "{8C46A9E2-1200-4F7E-96D4-E425E2F32F3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FD17827F-6362-4F0E-9A9D-ADFBC79EBFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD17827F-6362-4F0E-9A9D-ADFBC79EBFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD17827F-6362-4F0E-9A9D-ADFBC79EBFB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C46A9E2-1200-4F7E-96D4-E425E2F32F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C46A9E2-1200-4F7E-96D4-E425E2F32F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C46A9E2-1200-4F7E-96D4-E425E2F32F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C46A9E2-1200-4F7E-96D4-E425E2F32F3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

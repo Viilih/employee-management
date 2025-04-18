@@ -2,12 +2,10 @@ using API.Database;
 using API.Domain.Entities;
 using FluentResults;
 using FluentValidation;
-using FluentValidation.Results;
-using FluentValidation.Validators;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.features.Coordinators;
+namespace API.features.Coordinators.CreateCoordinatorFeature;
 
 public record CreateCoordinatorCommand(string FirstName, string LastName, string Email)
     : IRequest<Result<Coordinator>>;

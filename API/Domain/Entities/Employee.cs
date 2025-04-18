@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace API.Domain.Entities;
 public class Employee
 {
@@ -11,6 +13,7 @@ public class Employee
     
     public int DepartmentId {get; set;}
 
+    [JsonIgnore]
     public Department Department { get; set; } = null!;
     
 }

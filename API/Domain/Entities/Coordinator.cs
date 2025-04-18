@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace API.Domain.Entities;
 
 public class Coordinator
