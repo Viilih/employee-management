@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-Email_Microservice-d32ca083-3d15-4d7e-bb6a-8839acbca0ec</UserSecretsId>
+        <RootNamespace>Email_Microservice</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Azure.Communication.Email" Version="1.0.1" />
+        <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.19.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\API\API.csproj" />
+    </ItemGroup>
+</Project>
